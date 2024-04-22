@@ -265,7 +265,7 @@ const ResourcesPage = () => {
                     ))}
                   </div>
                 </div> */}
-                <p
+                {/* <p
                   style={{
                     fontWeight: "bold",
                     fontSize: "1.3rem",
@@ -276,8 +276,8 @@ const ResourcesPage = () => {
                   }}
                 >
                   eBooks
-                </p>
-                <div
+                </p> */}
+                {/* <div
                   style={{
                     marginBottom: "3rem",
                     paddingBottom: "1rem",
@@ -335,7 +335,7 @@ const ResourcesPage = () => {
                       </button>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
               {/*  */}
             </div>

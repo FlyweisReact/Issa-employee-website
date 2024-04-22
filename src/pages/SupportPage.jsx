@@ -127,23 +127,23 @@ const SupportPage = () => {
             </p>
             <p style={{ marginBottom: "2rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
-                Technical Support:
+                Sales:
+              </span>
+              <br />
+              <span style={{ color: "#AF110C", fontWeight: "bold" }}>
+                +1 {contect?.supportPhone}
+              </span>
+            </p>
+            <p style={{ marginBottom: "2rem" }}>
+              <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
+                Support :
               </span>
               <br />
               <span style={{ color: "#AF110C", fontWeight: "bold" }}>
                 {contect?.technicalSupport}
               </span>
             </p>
-            <p style={{ marginBottom: "2rem" }}>
-              <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
-                Schedule Training:
-              </span>
-              <br />
-              <span style={{ color: "#AF110C", fontWeight: "bold" }}>
-                {contect?.scheduleTraining}
-              </span>
-            </p>
-            <p style={{ marginBottom: "2rem" }}>
+            {/* <p style={{ marginBottom: "2rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
                 Questions, Suggestions, or Comments:
               </span>
@@ -151,7 +151,7 @@ const SupportPage = () => {
               <span style={{ color: "#AF110C", fontWeight: "bold" }}>
                 {contect?.teamEmail}
               </span>
-            </p>
+            </p> */}
             <p style={{ marginBottom: "2rem" }}>
               <span style={{ color: "black", fontSize: ".8rem" }}>
                 For after hours, emergency support please call:

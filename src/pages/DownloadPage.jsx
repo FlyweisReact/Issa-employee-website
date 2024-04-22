@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import "./css/DownloadPage.css";
 import axios from "axios";
+
+
 const DownloadPage = () => {
   const [contect, setContect] = useState("");
   const [data,setDate]=useState("")
+
+
 
   const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
 
@@ -160,7 +164,7 @@ const DownloadPage = () => {
               </p>
               <p>
                 <span style={{ fontWeight: "bold" }}>Hardware:</span> Windows or
-                Mac computer with a 64-bit processor <br /> <br />{" "}
+                Mac computer with a 64-bit processor {" "}
                 <span style={{ fontWeight: "bold" }}>Operating System:</span>{" "}
                 64-bit Windows (Windows 10, Windows 11), macOS Big Sur 11.7.5 or
                 newer <br /> <span style={{ fontWeight: "bold" }}>Memory:</span>{" "}

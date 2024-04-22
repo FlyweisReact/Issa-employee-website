@@ -179,7 +179,8 @@ const PricePage = () => {
   return (
     <div className="support-page">
       <div className="support-page-container">
-        <p>Pricing</p>
+        {/* <p>OASISNOTES® PRICING</p> */}
+        <p>{fpq?.name}</p>
       </div>
       <div className="pricing-page-container">
         <p
@@ -196,7 +197,7 @@ const PricePage = () => {
         </p>
 
         <div className="pricing-page-container2">
-          {pricing?.map((item, i) => (
+          {pricing?.slice(0, 2)?.map((item, i) => (
             <>
               <div
                 key={i}
@@ -212,7 +213,7 @@ const PricePage = () => {
                     fontSize: "1.5rem",
                   }}
                 >
-                 {`Plan ${i+1}`}
+                 {item?.name}
                 </p>
                 <div
                   style={{
@@ -228,28 +229,14 @@ const PricePage = () => {
                       marginTop: "1rem",
                     }}
                   >
-                    ${item?.perUser}/ Month
+                    <span style={{fontSize: "2.5rem"}}>${item?.perUser}</span>/ Month
                   </p>
-                  {/* <p
-                    style={{
-                      fontSize: ".8rem",
-                      fontWeight: "bold",
-                      color: "#AF110C",
-                    }}
-                  >
-                    PER MONTH
-                  </p> */}
-
-                  {/* <p style={{fontSize:"16px",fontWeight:"bold",width:"80%",margin:"auto",textAlign:"center"}}>
-            The first three-month charge will be ${item?.perUser*3} as the initial payment, after which ${item?.perUser} will be automatically charged every month.
-        </p> */}
-
+             
                   <button
                     style={{
                       alignItems: "center",
                       marginTop: "1rem",
                       cursor: "pointer",
-                      // backgroundColor: "#1A9FB2",#555
                       backgroundColor: "#555",
                       outline: "none",
                       padding: "10px",
@@ -281,24 +268,9 @@ const PricePage = () => {
                     View more
                   </p> */}
 
-                  <div style={{ marginTop: "2rem"}}>
-                    {item?.details?.map((data, i) => (
-                      <ul
-                        key={i}
-                        style={{
-                          // textAlign: "center",
-                          width: "90%",
-                          margin: "auto",
-                          // paddingBottom: "1.5rem",
-                          fontWeight: "bold",
-                          paddingTop: "1rem",
-                          // lineHeight:"1.5rem"
-                        }}
-                      >
-                        <li>{data}</li>
-                      </ul>
-                    ))}
-                  </div>
+<div style={{ marginTop: "1rem", display: "block", alignContent: "center", padding: "0 10px" }} dangerouslySetInnerHTML={{ __html: item?.details || "" }}>
+</div>
+
                 </div>
               </div>
             </>

@@ -5,11 +5,13 @@ import moment from "moment-timezone";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { show_notification } from '../Api_collection/Api';
+import TimezoneSelect from 'react-timezone-select';
+
 
 const DemoPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [timeZone, setTimeZone] = useState("");
+  const [timeZone, setTimeZone] = useState('');
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -17,6 +19,7 @@ const DemoPage = () => {
   const [describe, setDescribe] = useState("");
   const [timeZones, setTimeZones] = useState([]);
   const [contect, setContect] = useState([]);
+
 
   // Error
   const [firstNameError, setFirstNameError] = useState("");
@@ -43,10 +46,6 @@ const DemoPage = () => {
   const handleData = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
-
     const validateForm = () => {
       // Validate Company Name
       if (companyName.trim() === "") {
@@ -54,13 +53,13 @@ const DemoPage = () => {
         return false;
       }
       if (firstName.trim() === "") {
-        setFirstNameError("First name is required");
+        setFirstNameError("Full Name is required");
         return false;
       }
-      if (lastNameError.trim() === "") {
-        setLastNameError("Last is required");
-        return false;
-      }
+      // if (lastNameError.trim() === "") {
+      //   setLastNameError("Last is required");
+      //   return false;
+      // }
       if (email.trim() === "") {
         setEmailError("Email is required");
         return false;
@@ -74,10 +73,13 @@ const DemoPage = () => {
         return false;
       }
       
+      if (!validateForm()) {
+        return;
+      }
   
       setCompanyNameError('');
       setFirstNameError("");
-      setLastNameError("");
+      // setLastNameError("");
       setEmailError("");
       setPhoneNumberError("");
       setHearAboutUsError("");
@@ -124,6 +126,7 @@ const DemoPage = () => {
   const timeHandler = (e) => {
     const selectedTimezone = e.target.value;
     setTimeZone(moment().tz(selectedTimezone).format("h:mm A"));
+    const utcTime = currentTime.utc().format("h:mm A");
   };
 
   return (
@@ -162,7 +165,7 @@ const DemoPage = () => {
               
             </Form.Group>
             <Form.Group className="mb-3  " controlId="formBasicEmail">
-              <Form.Label>Primary Contact - First Name*</Form.Label>
+              <Form.Label>Full Name*</Form.Label>
               <Form.Control
                 className="border border-dark"
                 type="text"
@@ -173,7 +176,7 @@ const DemoPage = () => {
               />
               {firstNameError && <Form.Text className="text-danger">{firstNameError}</Form.Text>}
             </Form.Group>
-            <Form.Group className="mb-3  " controlId="formBasicEmail">
+            {/* <Form.Group className="mb-3  " controlId="formBasicEmail">
               <Form.Label>Primary Contact - Last Name*</Form.Label>
               <Form.Control
                 className="border border-dark"
@@ -184,7 +187,7 @@ const DemoPage = () => {
                   setLastNameError(e.target.value.trim() === "" ? "Last Name is Required" : "")}}
               />
               {lastNameError && <Form.Text className="text-danger">{lastNameError}</Form.Text>}
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Time Zone*</Form.Label>
               <Form.Select
@@ -198,6 +201,7 @@ const DemoPage = () => {
                     {zone}
                   </option>
                 ))}
+             
               </Form.Select>
               <p>Current Time: {timeZone}</p>
             </Form.Group>
@@ -227,14 +231,25 @@ const DemoPage = () => {
             </Form.Group>
             <Form.Group className="mb-3  " controlId="formBasicEmail">
               <Form.Label>How did you hear about us?*</Form.Label>
-              <Form.Control
+              <Form.Select    
+               required
+                value={hearAboutUs}
+                onChange={(e) => {setHearAboutUs(e.target.value)}}>
+              <option>Open this select menu</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Other">Other</option>
+              setHearAboutUsError(e.target.value.trim() === "" ? "This is a Required" : "");
+              </Form.Select>
+              {/* <Form.Control
                 className="border border-dark"
                 type="text"
                 required
                 value={hearAboutUs}
                 onChange={(e) => {setHearAboutUs(e.target.value);
                   setHearAboutUsError(e.target.value.trim() === "" ? "This is a Required" : "")}}
-              />
+              /> */}
               {hearAboutUsError && <Form.Text className="text-danger">{hearAboutUsError}</Form.Text>}
             </Form.Group>
             <Form.Group className="mb-3  " controlId="formBasicEmail">
@@ -288,28 +303,47 @@ const DemoPage = () => {
             <p style={{ fontWeight: "bold" }}>
               For more information or to request a demo, please contact us.
             </p>
-            <p style={{ color: "#0152A8", textDecoration: "underline" }}>
-              {contect?.saleEmail}
-            </p>
+
+            {/* <p style={{ color: "#0152A8", textDecoration: "underline" }}>
+              <span style={{color:"black",textDecoration:"none"}}>Sales Email:</span> {contect?.saleEmail}
+            </p> */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem", lineHeight: "1rem" }}>
+                    <p style={{ fontWeight: "900", lineHeight: "1rem" }}>Sales Email:</p>
+                    <a href={contect?.saleEmail}>{contect?.saleEmail}</a>
+                  </div>
+                </div>
             <p>{contect?.city}</p>
-            <p>{contect?.state}</p>
+            <p>Address: {contect?.state}</p>
             <p>{contect?.pincode}</p>
-            <p>
-              Support/Training :{" "}
+            {/* <p>
+              Support :{" "}
               <span style={{ color: "#0152A8", textDecoration: "underline" }}>
                 {contect?.technicalSupport}
               </span>
-            </p>
-            <p style={{ color: "#0152A8", textDecoration: "underline" }}>
-              {contect?.teamEmail}
-            </p>
-            <p>
-              Sales/Demo:{" "}
+            </p> */}
+            {/* <p style={{ color: "#0152A8", textDecoration: "underline" }}>
+              {contect?.supportEmail}
+            </p> */}
+            {/* <p>
+              Sales :{" "}
               <span style={{ color: "#0152A8", textDecoration: "underline" }}>
                 {contect?.salePhone}
               </span>
-            </p>
-            <p>Fax: {contect?.supportFax}</p>
+            </p> */}
+            {/* <p>Fax: {contect?.supportFax}</p> */}
             <p
               style={{
                 display: "flex",

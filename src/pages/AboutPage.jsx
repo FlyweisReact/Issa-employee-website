@@ -43,12 +43,12 @@ const AboutPage = () => {
   return (
     <div className="support-page">
     <div className="support-page-container">
-      <p>Oasis Notes</p>
+      <p>OASIS NOTES</p>
     </div>
     <div className="support-page-container22121">
       <div className="support-page-container225">
         <div className="support-page-container21111">
-          <span style={{paddingLeft:"1rem"}}>Oasis Notes</span>
+          <span style={{paddingLeft:"1rem"}}>OASIS NOTES</span>
           {/* <span>
             <img src="/SupportPage/zoom.png" alt="zoom" />
           </span> */}
@@ -137,7 +137,7 @@ const AboutPage = () => {
               fontSize: "1.5rem",
             }}
           >
-            OasisNotes Support
+            OASIS NOTES SUPPORT
           </p>
           <p style={{ marginBottom: "2rem" }}>
             <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
