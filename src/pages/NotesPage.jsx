@@ -6,7 +6,7 @@ const NotesPage = () => {
   const [notes, setNotes] = useState([]);
   const [contect, setContect] = useState("");
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const contectDetail = async () => {
     try {

@@ -9,7 +9,7 @@ const DownloadPage = () => {
 
 
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const contectDetail = async () => {
     try {

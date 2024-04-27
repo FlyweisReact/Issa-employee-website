@@ -12,7 +12,7 @@ const ResourcesPage = () => {
   const [popular, setPopular] = useState([]);
   const [showData, setShowData] = useState(false);
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const getCategoryData = async () => {
     try {

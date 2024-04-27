@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom";
+
 import "./css/AboutPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Accordion from "react-bootstrap/Accordion";
 
 const AboutPage = () => {
-  const navigate = useNavigate();
   const [contect, setContect] = useState("");
   const [question, setQuestion] = useState([]);
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
+
 
   const contectDetail = async () => {
     try {
@@ -50,7 +50,7 @@ const AboutPage = () => {
         <div className="support-page-container21111">
           <span style={{paddingLeft:"1rem"}}>OASIS NOTES</span>
           {/* <span>
-            <img src="/SupportPage/zoom.png" alt="zoom" />
+            <img src="/SupportPage/zoom.png" alt="zoom"  />
           </span> */}
         </div>
          <div className="container d-flex justify-content-center align-items-center">

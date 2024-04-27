@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export const Footer = () => {
   const [contect, setContect] = useState("");
   const navigate = useNavigate();
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const contectDetail = async () => {
     try {

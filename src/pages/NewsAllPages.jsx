@@ -13,8 +13,7 @@ const NewsAllPages = () => {
     setPage(value);
   };
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
-
+  const BaseUrl = mport.meta.env.VITE_API_BASEURL;
   const getNewsData = async () => {
     try {
       const res = await axios.get(`${BaseUrl}News/getNews`);

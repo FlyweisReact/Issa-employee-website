@@ -6,7 +6,7 @@ const PartnerPage = () => {
   const navigate = useNavigate();
   const [data,setDate]=useState("")
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const partener_logo = async () => {
     try {

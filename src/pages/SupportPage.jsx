@@ -1,6 +1,5 @@
 import "./css/Support.css";
 import { useState, useEffect } from "react";
-import { Link } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const SupportPage = () => {
@@ -8,7 +7,7 @@ const SupportPage = () => {
   const [contect, setContect] = useState("");
   const [question, setQuestion] = useState("");
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const contectDetail = async () => {
    
@@ -131,7 +130,7 @@ const SupportPage = () => {
               </span>
               <br />
               <span style={{ color: "#AF110C", fontWeight: "bold" }}>
-                +1 {contect?.supportPhone}
+                {contect?.supportPhone}
               </span>
             </p>
             <p style={{ marginBottom: "2rem" }}>

@@ -13,7 +13,7 @@ export const HomePage = () => {
   const [featureDataImage, setFeatureDataImage] = useState([]);
   const [news, setNews] = useState([]);
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const getTopBanner = async () => {
     try {

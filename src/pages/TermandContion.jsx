@@ -9,7 +9,7 @@ const TermandContion = () => {
   const [contect, setContect] = useState("");
   const [privacy,setPrivacy]=useState("");
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const contectDetail = async () => {
     try {

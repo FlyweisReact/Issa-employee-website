@@ -7,7 +7,7 @@ const SingleBlogPage = () => {
   const { id } = useParams();
   const [data, setData] = useState("");
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
   const getSingleBlogData = async () => {
     try {
