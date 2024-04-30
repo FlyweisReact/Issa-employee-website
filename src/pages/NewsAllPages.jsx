@@ -13,7 +13,7 @@ const NewsAllPages = () => {
     setPage(value);
   };
 
-  const BaseUrl = mport.meta.env.VITE_API_BASEURL;
+  const BaseUrl = import.meta.env.VITE_API_BASEURL;
   const getNewsData = async () => {
     try {
       const res = await axios.get(`${BaseUrl}News/getNews`);

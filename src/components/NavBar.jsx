@@ -105,13 +105,13 @@ const NavBar = () => {
                   className="custom-dropdown-title"
                 >
                   
-                  <NavDropdown.Item href="https://issa-patient-update-website.vercel.app/">
+                  <NavDropdown.Item target="_blank" href="https://issa-patient-panel.vercel.app/" >
                     Patient Panel
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="https://issa-employee-panel.vercel.app/">
+                  <NavDropdown.Item target="_blank" href="https://issa-employee-panel.vercel.app/">
                     Employee Panel
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="https://issa-admin-api-ravindra.vercel.app/">
+                  <NavDropdown.Item target="_blank" href="https://issa-admin-api-ravindra.vercel.app/">
                     Admin Panel
                   </NavDropdown.Item>
                 </NavDropdown>

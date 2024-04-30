@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/PricePage.css";
 import axios from "axios";
-import { get_PricingData } from "../Api_collection/Api.js";
-import Accordion from "react-bootstrap/Accordion";
 
 // payment gateway
 import Button from "react-bootstrap/Button";
@@ -13,7 +11,7 @@ function MyVerticallyCenteredModal(props) {
   const [email, setEmail] = useState("");
   const [subscriptionId, setSubscriptionId] = useState("");
 
-  const [textData,setTextData]=useState("")
+  const [textData, setTextData] = useState("");
 
   const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
@@ -49,17 +47,16 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title
-          id="contained-modal-title-vcenter"
-         
-        >
-          <div  style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection:"column",
-            justifyContent: "center",
-            width: "100%",
-          }}>
+        <Modal.Title id="contained-modal-title-vcenter">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
             <div>
               <img
                 src="/logo.png"
@@ -75,20 +72,14 @@ function MyVerticallyCenteredModal(props) {
               />
             </div>
             <div>
-            <p style={{fontSize:"16px",fontWeight:"bold"}}>
-            {textData}
-        </p>
+              <p style={{ fontSize: "16px", fontWeight: "bold" }}>{textData}</p>
             </div>
           </div>
         </Modal.Title>
-        
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handlePost}>
-          <Form.Group
-            className="mb-3"
-            controlId="formBasicEmail"
-          >
+          <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
             <Form.Control
               type="email"
@@ -120,7 +111,7 @@ const PricePage = () => {
   const [subscriptionId, setSubscriptionId] = useState("");
 
   //inner text
-  const [textData,setTextData]=useState("");
+  const [textData, setTextData] = useState("");
 
   const [pricing, setPricing] = useState([]);
   const [user, setUser] = useState("");
@@ -180,7 +171,7 @@ const PricePage = () => {
     <div className="support-page">
       <div className="support-page-container">
         {/* <p>OASISNOTES® PRICING</p> */}
-        <p>{fpq?.name}</p>
+        <p>{fpq?.heading}</p>
       </div>
       <div className="pricing-page-container">
         <p
@@ -193,16 +184,13 @@ const PricePage = () => {
             fontStyle: "italic",
           }}
         >
-          {fpq?.heading}
+          {fpq?.subHeading}
         </p>
 
         <div className="pricing-page-container2">
           {pricing?.slice(0, 2)?.map((item, i) => (
             <>
-              <div
-                key={i}
-                className="pricing-child-block"
-              >
+              <div key={i} className="pricing-child-block">
                 <p
                   style={{
                     textAlign: "center",
@@ -211,9 +199,10 @@ const PricePage = () => {
                     padding: "0.8rem",
                     fontWeight: "500",
                     fontSize: "1.5rem",
+                    borderRadius:"10px 10px 0px 0px"
                   }}
                 >
-                 {item?.name}
+                  {item?.name}
                 </p>
                 <div
                   style={{
@@ -223,36 +212,15 @@ const PricePage = () => {
                 >
                   <p
                     style={{
-                      fontSize: "1.3rem",
+                      fontSize: "1rem",
                       color: "#1A9FB2",
                       lineHeight: "1rem",
                       marginTop: "1rem",
                     }}
                   >
-                    <span style={{fontSize: "2.5rem"}}>${item?.perUser}</span>/ Month
+                    <span style={{ fontSize: "2.5rem" }}>${item?.perUser}</span>{" "}
+                    /Month
                   </p>
-             
-                  <button
-                    style={{
-                      alignItems: "center",
-                      marginTop: "1rem",
-                      cursor: "pointer",
-                      backgroundColor: "#555",
-                      outline: "none",
-                      padding: "10px",
-                      border: "none",
-                      color: "white",
-                      borderRadius: "5px",
-                      minWidth: "40%",
-                    }}
-                    onClick={() => {
-                      setModalShow(true);
-                      setSubscriptionId(item._id);
-                      setTextData(`Plan ${i+1} is ${item?.perUser*3} for the first 3 months and then ${item?.perUser} every month.`)
-                    }} 
-                  >
-                    Subscribe Now
-                  </button>
 
                   {/* <p
                     style={{
@@ -268,9 +236,48 @@ const PricePage = () => {
                     View more
                   </p> */}
 
-<div style={{ marginTop: "1rem", display: "block", alignContent: "center", padding: "0 10px" }} dangerouslySetInnerHTML={{ __html: item?.details || "" }}>
-</div>
+                  <div
+                    className="pricing-inner-content"
+                    dangerouslySetInnerHTML={{ __html: item?.details || "" }}
+                  ></div>
 
+                  <button
+                    style={{
+                      alignItems: "center",
+                      marginTop: "0.5rem",
+                      cursor: "pointer",
+                      backgroundColor:"#555", // Gradient background
+                      outline: "none",
+                      padding: "10px",
+                      border: "none",
+                      color: "white",
+                      borderRadius: "5px",
+                      minWidth: "40%",
+                      transition: "background-color 0.3s ease", // Add transition for smooth effect
+                    }}
+                    onClick={() => {
+                      setModalShow(true);
+                      setSubscriptionId(item._id);
+                      setTextData(
+                        `Plan ${i + 1} is ${
+                          item?.perUser * 3
+                        } for the first 3 months and then ${
+                          item?.perUser
+                        } every month.`
+                      );
+                    }}
+                    // Add hover effect
+                    onMouseEnter={(e) =>
+                      (e.target.style.background =
+                        "linear-gradient(to right, #333, #222)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.background =
+                        "linear-gradient(to right, #555, #333)")
+                    }
+                  >
+                    Subscribe Now
+                  </button>
                 </div>
               </div>
             </>

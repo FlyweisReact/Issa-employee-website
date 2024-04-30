@@ -132,9 +132,9 @@ export const Footer = () => {
               >
                 About us
               </p>
-              <p onClick={() => navigate("/resources")} style={{ cursor: "pointer" }}>
+              {/* <p onClick={() => navigate("/resources")} style={{ cursor: "pointer" }}>
                 Testimonials
-              </p>
+              </p> */}
               <p onClick={() => navigate("/all_news_information")} style={{ cursor: "pointer" }}>
                 News
               </p>
