@@ -16,7 +16,6 @@
     /* grid-template-columns: 25% 75%; */
     gap: 1rem;
     /* flex-wrap: wrap; */
-    margin-bottom: 2rem;
 }
 
 @media (max-width : 480px) {

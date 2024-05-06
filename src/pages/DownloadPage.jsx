@@ -33,6 +33,8 @@ const DownloadPage = () => {
     }
   };
 
+  console.log(data,"specification")
+
   useEffect(() => {
     contectDetail();
     Download_logo();
@@ -151,7 +153,7 @@ const DownloadPage = () => {
             </div>
           </div>
           <div style={{ marginTop: "2rem" }}>
-            <div style={{ fontWeight: "400", padding: "1rem" }}>
+            <div style={{ fontWeight: "400", padding: "0rem" }}>
               <p
                 style={{
                   fontSize: "1.3rem",
@@ -162,46 +164,11 @@ const DownloadPage = () => {
               >
                 Supported Specifications:
               </p>
-              <p>
-                <span style={{ fontWeight: "bold" }}>Hardware:</span> Windows or
-                Mac computer with a 64-bit processor {" "}
-                <span style={{ fontWeight: "bold" }}>Operating System:</span>{" "}
-                64-bit Windows (Windows 10, Windows 11), macOS Big Sur 11.7.5 or
-                newer <br /> <span style={{ fontWeight: "bold" }}>Memory:</span>{" "}
-                Minimum 2 GB RAM <br />
-                <span style={{ fontWeight: "bold" }}>Network:</span> Broadband
-                Internet connection <br />
-                <span style={{ fontWeight: "bold" }}>Storage:</span> 500 MB
-                available space <br /> 
-              
-                .
-              </p>
-              {/* <p
-                style={{
-                  fontSize: "1.3rem",
-                  fontWeight: "bold",
-                  color: "#1A9FB2",
-                  marginBottom: "1rem",
-                }}
-              >
-                Mobile Capabilities:
-              </p> */}
-              {/* <p style={{ fontWeight: "bold" }}>
-                <li>View & Create Contacts </li>{" "}
-                <li>View & Create Q-log messages</li>
-                <li> View & Create Tasks/Reminders </li>
-                <li>View & Create Templates and Simple Notes</li>
-                <li> View & Upload Documentation</li>
-                <br />
-                <p style={{ fontWeight: "bold", fontSize: "1rem" }}>
-                  View only:
-                </p>
-                <li>For Review Tab</li>
-                <li>General Log</li>
-                <li>Admission Applications</li>
-                <li>Medical/Clinical Documentation</li>
-                <br />
-              </p> */}
+
+              <div style={{lineHeight:"1rem"}}
+                    dangerouslySetInnerHTML={{ __html: data?.specification || "" }}
+                  ></div>
+            
             </div>
           </div>
         </div>
@@ -218,7 +185,7 @@ const DownloadPage = () => {
             >
               OasisNotes Support
             </p>
-            <p style={{ marginBottom: "2rem" }}>
+            <p style={{ marginBottom: "0.5rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
                 Hours
               </span>
@@ -227,7 +194,7 @@ const DownloadPage = () => {
                 {contect?.hours}
               </span>
             </p>
-            <p style={{ marginBottom: "2rem" }}>
+            <p style={{ marginBottom: "0.5rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
                 Technical Support:
               </span>
@@ -236,7 +203,7 @@ const DownloadPage = () => {
                 {contect?.technicalSupport}
               </span>
             </p>
-            <p style={{ marginBottom: "2rem" }}>
+            <p style={{ marginBottom: "0.5rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
                 Schedule Training:
               </span>
@@ -245,7 +212,7 @@ const DownloadPage = () => {
                 {contect?.scheduleTraining}
               </span>
             </p>
-            <p style={{ marginBottom: "2rem" }}>
+            <p style={{ marginBottom: "0.5rem" }}>
               <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
                 Questions, Suggestions, or Comments:
               </span>
@@ -254,8 +221,8 @@ const DownloadPage = () => {
                 {contect?.teamEmail}
               </span>
             </p>
-            <p style={{ marginBottom: "2rem" }}>
-              <span style={{ color: "black", fontSize: ".8rem" }}>
+            <p style={{ marginBottom: "0.5rem" }}>
+              <span style={{ color: "black" }}>
                 For after hours, emergency support please call:
               </span>
               <br />

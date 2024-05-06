@@ -47,12 +47,7 @@ const AboutPage = () => {
     </div>
     <div className="support-page-container22121">
       <div className="support-page-container225">
-        <div className="support-page-container21111">
-          <span style={{paddingLeft:"1rem"}}>OASIS NOTES</span>
-          {/* <span>
-            <img src="/SupportPage/zoom.png" alt="zoom"  />
-          </span> */}
-        </div>
+     
          <div className="container d-flex justify-content-center align-items-center">
               <div className="col-md-12">
                 {question?.map((item, i) => (
@@ -139,7 +134,7 @@ const AboutPage = () => {
           >
             OASIS NOTES SUPPORT
           </p>
-          <p style={{ marginBottom: "2rem" }}>
+          <p style={{ marginBottom: "0.5rem" }}>
             <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
               Hours
             </span>
@@ -148,7 +143,7 @@ const AboutPage = () => {
               {contect?.hours}
             </span>
           </p>
-          <p style={{ marginBottom: "2rem" }}>
+          <p style={{ marginBottom: "0.5rem" }}>
             <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
               Technical Support:
             </span>
@@ -157,7 +152,7 @@ const AboutPage = () => {
               {contect?.technicalSupport}
             </span>
           </p>
-          <p style={{ marginBottom: "2rem" }}>
+          <p style={{ marginBottom: "0.5rem" }}>
             <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
               Schedule Training:
             </span>
@@ -166,7 +161,7 @@ const AboutPage = () => {
               {contect?.scheduleTraining}
             </span>
           </p>
-          <p style={{ marginBottom: "2rem" }}>
+          <p style={{ marginBottom: "0.5rem" }}>
             <span style={{ color: "#1A9FB2", fontWeight: "bold" }}>
               Questions, Suggestions, or Comments:
             </span>
@@ -175,8 +170,8 @@ const AboutPage = () => {
               {contect?.teamEmail}
             </span>
           </p>
-          <p style={{ marginBottom: "2rem" }}>
-            <span style={{ color: "black", fontSize: ".8rem" }}>
+          <p style={{ marginBottom: "0.5rem" }}>
+            <span style={{ color: "black"}}>
               For after hours, emergency support please call:
             </span>
             <br />

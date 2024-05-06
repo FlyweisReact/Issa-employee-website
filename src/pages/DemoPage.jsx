@@ -136,15 +136,7 @@ const DemoPage = () => {
       </div>
       <div className="support-page-container2">
         <div className="download-page-container21">
-          {/* <p
-            style={{
-              fontWeight: "bold",
-              fontSize: "1.5rem",
-              color: "#AF110C",
-            }}
-          >
-            Demo Request (Contact Form)
-          </p> */}
+       
           <Form
             style={{ width: "100%", color: "#545454", fontWeight: "bold",marginTop:"1.5rem" }}
             onSubmit={handleData}
@@ -176,18 +168,7 @@ const DemoPage = () => {
               />
               {firstNameError && <Form.Text className="text-danger">{firstNameError}</Form.Text>}
             </Form.Group>
-            {/* <Form.Group className="mb-3  " controlId="formBasicEmail">
-              <Form.Label>Primary Contact - Last Name*</Form.Label>
-              <Form.Control
-                className="border border-dark"
-                type="text"
-                required
-                value={lastName}
-                onChange={(e) => {setLastName(e.target.value);
-                  setLastNameError(e.target.value.trim() === "" ? "Last Name is Required" : "")}}
-              />
-              {lastNameError && <Form.Text className="text-danger">{lastNameError}</Form.Text>}
-            </Form.Group> */}
+          
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Time Zone*</Form.Label>
               <Form.Select
@@ -242,14 +223,7 @@ const DemoPage = () => {
               <option value="Other">Other</option>
               setHearAboutUsError(e.target.value.trim() === "" ? "This is a Required" : "");
               </Form.Select>
-              {/* <Form.Control
-                className="border border-dark"
-                type="text"
-                required
-                value={hearAboutUs}
-                onChange={(e) => {setHearAboutUs(e.target.value);
-                  setHearAboutUsError(e.target.value.trim() === "" ? "This is a Required" : "")}}
-              /> */}
+         
               {hearAboutUsError && <Form.Text className="text-danger">{hearAboutUsError}</Form.Text>}
             </Form.Group>
             <Form.Group className="mb-3  " controlId="formBasicEmail">
@@ -300,19 +274,19 @@ const DemoPage = () => {
             >
               Contact Information
             </p>
-            <p style={{ fontWeight: "bold" }}>
+            <p style={{ fontWeight: "bold",margin: "0"}}>
               For more information or to request a demo, please contact us.
             </p>
 
-            {/* <p style={{ color: "#0152A8", textDecoration: "underline" }}>
-              <span style={{color:"black",textDecoration:"none"}}>Sales Email:</span> {contect?.saleEmail}
-            </p> */}
+              <p style={{ fontWeight: "900",margin:"0"}}>Hours: </p>
+              <p >Mon-Fri: 8: 00am - 5: 00pm MST</p>
+            
                 <div
                   style={{
                     display: "flex",
                     gap: "1rem",
                     alignItems: "center",
-                    marginBottom: "1rem",
+                    marginBottom: "0.5rem",
                   }}
                 >
                   <img
@@ -320,14 +294,39 @@ const DemoPage = () => {
                     src="/ContactUs/message.png"
                     alt=""
                   />
-                  <div style={{ fontSize: ".9rem", lineHeight: "1rem" }}>
-                    <p style={{ fontWeight: "900", lineHeight: "1rem" }}>Sales Email:</p>
-                    <a href={contect?.saleEmail}>{contect?.saleEmail}</a>
+                  <div style={{ fontSize: ".9rem", lineHeight: "0.5rem" }}>
+                    <p style={{ fontWeight: "900" }}>Sales Email: <a href={contect?.saleEmail}>{contect?.saleEmail}</a></p>
+                    <p style={{margin:"auto"}}>Phone Number:  {contect?.salePhone}</p>
                   </div>
+
                 </div>
-            <p>{contect?.city}</p>
-            <p>Address: {contect?.state}</p>
-            <p>{contect?.pincode}</p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem" ,lineHeight: "0.5rem"}}>
+                    <p style={{ fontWeight: "900",whiteSpace:"none",lineHeight: "1rem" }}>Support Email: <a href={contect?.saleEmail}>
+                      {/* {contect?.saleEmail} */}
+                      support@oasisnotes.com
+                      </a></p>
+                    <p style={{margin:"0"}}>Phone Number:  {contect?.salePhone}</p>
+                  </div>
+
+                </div>
+                
+            <p style={{margin:"0"}}>{contect?.city}</p>
+            <p style={{margin:"0"}}>Address: {contect?.state}</p>
+            <p style={{margin:"0"}}>{contect?.pincode}</p>
             {/* <p>
               Support :{" "}
               <span style={{ color: "#0152A8", textDecoration: "underline" }}>

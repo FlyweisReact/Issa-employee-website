@@ -54,10 +54,10 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-bottom: 1rem;
+    /* padding-bottom: rem; */
     /* border-bottom: 1px solid black; */
     padding-right: 5%;
-    /* margin-right: 2%; */
+   width: 100%;
 
     @media screen and (max-width: 768px) {
 

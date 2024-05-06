@@ -12,10 +12,9 @@
 }
 
 .features-container-homepage1 {
-  padding: 1rem;
   width: 60%;
   margin: auto;
-  /* margin-bottom: 2rem; */
+  margin-bottom: 0rem;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -106,7 +105,6 @@
 
 .container6-homePage > div > p {
   font-weight: bold;
-  padding-top: 0.8rem;
 }
 
 .container6-homePage > div > img {
@@ -121,8 +119,6 @@
   grid-template-columns: 40% 60%;
   gap: 0.4rem;
   padding: 1rem;
-
-  margin-top: 4rem;
 }
 
 .container8-homePage {
@@ -130,8 +126,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  max-height: 950px;
-  min-height: 400px;
+  min-height: 300px;
   height: auto;
   width: 100%;
   background-color: rgba(26, 159, 178, 0.4);

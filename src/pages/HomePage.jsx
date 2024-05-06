@@ -126,11 +126,11 @@ export const HomePage = () => {
         style={{
           textAlign: "center",
           fontWeight: "100",
-          fontSize: "1.2rem",
-          marginBottom: "1rem",
+          fontSize: "1.5rem",
+          marginBottom: "0",
           width: "80%",
           margin: "auto",
-          marginTop: "4.2rem",
+          marginTop: "1rem",
         }}
       >
         Behavioral Health Software{" "}
@@ -138,30 +138,7 @@ export const HomePage = () => {
           Trusted by Clinicians Nationwide
         </span>
       </p>
-      {/* <div
-        style={{
-          width: "80%",
-          margin: "auto",
-          marginTop: "1rem",
-          marginBottom: "3rem",
-
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          rowGap: "1rem",
-          columnGap: ".3rem",
-        }}
-      >
-        {trustedImage?.map((item, i) => (
-          <div key={i}>
-            <img
-              style={{ width: "250px", height: "180px" }}
-              src={item?.image}
-              alt="image2"
-            />
-          </div>
-        ))}
-      </div> */}
+    
 
       <div className="features-container-homepage1">
         <div>
@@ -170,8 +147,7 @@ export const HomePage = () => {
               fontSize: "1.5rem",
               textAlign: "center",
               fontWeight: "bold",
-              marginBottom: "2rem",
-              marginTop: "1rem",
+            
             }}
           >
             Our Features
@@ -207,78 +183,7 @@ export const HomePage = () => {
       </div>
 
       <div style={{ width: "80%", margin: "auto" }}>
-       
-        {/* <div
-          className="top-section-homePage1"
-          style={{ backgroundImage: `url(${about?.image})` }}
-        >
-          <div className="text-container1">
-            <p style={{ fontSize: ".8rem", fontWeight: "400" }}>About Us</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
-              
-              {about?.tittle}
-            </p>
-            <p style={{ fontSize: ".9rem", fontWeight: "100" }}>
-              {about?.description}
-              
-            </p>
-            <div
-              className="new-homepage-class"
-              style={{
-                borderRadius: "10px",
-                display: "flex",
-                gap: "1rem",
-                alignItems: "center",
-                fontSize: ".8rem",
-              }}
-            >
-              {about?.info?.slice(0, 4)?.map((item) => (
-                <>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      textAlign: "left",
-                      gap: "1rem",
-                    }}
-                  >
-                    <img
-                      style={{
-                        maxWidth: "40px",
-                        maxHeight: "40px",
-                        width: "auto",
-                        height: "auto",
-                        marginBottom: "1rem",
-                        borderRadius: "50%",
-                        border: "1px solid #1A9FB2",
-                        padding: "5px",
-                        alignItems: "center",
-                      }}
-                      src={item?.image}
-                      alt="images"
-                    />
-                    <p style={{ fontWeight: "bold", color: "black" }}>
-                      {item?.name}
-                    </p>
-                  </div>
-                </>
-              ))}
-            </div>
-            <button
-              style={{
-                padding: "0.5rem 1.5rem",
-                backgroundColor: "#024064",
-                color: "white",
-                border: "none",
-              
-                
-              }}
-              
-            >
-              More About Us
-            </button>
-          </div>
-        </div> */}
+        
         <div className="container6-homePage">
           {about?.cate?.map((item, i) => (
             <div key={i}>
@@ -289,16 +194,15 @@ export const HomePage = () => {
         </div>
       </div>
 
-
       {/* Speecial Care */}
       <div className="container7-homePage">
         <div>
-          <p style={{ fontSize: "1rem" }}> {bottomBanner?.heading}</p>
-          <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+          <p style={{ fontSize: "1.5rem" }}> {bottomBanner?.heading}</p>
+          <p style={{ fontSize: "1rem", fontWeight: "bold" }}>
             {bottomBanner?.title}
           </p>
-          <p style={{ fontSize: ".7rem" }}>{bottomBanner?.description}</p>
-          {bottomBanner?.descriptionArray?.map((item) => (
+          <p>{bottomBanner?.description}</p>
+          {/* {bottomBanner?.descriptionArray?.map((item) => (
             <>
               <p>
                 {" "}
@@ -310,7 +214,7 @@ export const HomePage = () => {
                 {item?.description}
               </p>
             </>
-          ))}
+          ))} */}
 
           {/* <button
             style={{
@@ -324,21 +228,22 @@ export const HomePage = () => {
           </button> */}
         </div>
         <div
-          style={{
+           style={{
             display: "flex",
             alignItems: "center",
             gap: "1rem",
+            ...(window.innerWidth <= 768 && { flexWrap: "wrap" }) 
           }}
         >
           <img
             src={bottomBanner?.image}
             alt="doctor"
-            style={{ width: "48%" }}
+            style={{ width: "60%" }}
           />{" "}
           <img
             src={bottomBanner?.image}
             alt="doctor"
-            style={{ width: "48%" }}
+            style={{ width: "60%" }}
           />{" "}
         </div>
       </div>
@@ -382,8 +287,10 @@ export const HomePage = () => {
         style={{
           width: "65%",
           margin: "auto",
-          marginTop: "3rem",
-          marginBottom: "4rem",
+          marginTop: "1rem",
+          // marginBottom: "6rem",
+          paddingBottom:"1rem"
+        
         }}
       >
         <div>
@@ -416,7 +323,7 @@ export const HomePage = () => {
                   alt="image"
                 />
               </div>
-              <div >
+              <div>
                 <p>{item?.title}</p>
                 <p style={{ fontWeight: "bold" }}>{item?.description}</p>
               </div>

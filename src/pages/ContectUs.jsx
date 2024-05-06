@@ -29,8 +29,8 @@ const ContactUs = () => {
     <div className="support-page">
       <div className="contactus-parent">
         <div className="support-page-container-contact">
-          <p style={{ fontSize: "2.1rem", paddingTop: "6rem" }}>
-            <span style={{ fontWeight: "900", fontSize: "2.1rem",padding:"10px" }}>
+          <p style={{ fontSize: "2rem", paddingTop: "2rem" }}>
+            <span style={{ fontWeight: "900", fontSize: "2rem",padding:"10px" }}>
               We would love to hear from you
             </span>{" "}
           </p>
@@ -60,6 +60,7 @@ const ContactUs = () => {
                     gap: "1rem",
                     alignItems: "center",
                     marginBottom: "1rem",
+                    flexWrap:"wrap"
                   }}
                 >
                   <img

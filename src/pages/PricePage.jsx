@@ -170,7 +170,7 @@ const PricePage = () => {
   return (
     <div className="support-page">
       <div className="support-page-container">
-        {/* <p>OASISNOTES® PRICING</p> */}
+     
         <p>{fpq?.heading}</p>
       </div>
       <div className="pricing-page-container">
