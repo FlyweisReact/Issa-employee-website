@@ -197,8 +197,8 @@ export const HomePage = () => {
       {/* Speecial Care */}
       <div className="container7-homePage">
         <div>
-          <p style={{ fontSize: "1.5rem" }}> {bottomBanner?.heading}</p>
-          <p style={{ fontSize: "1rem", fontWeight: "bold" }}>
+          <p style={{ fontSize: "1.5rem",margin:"0rem" }}> {bottomBanner?.heading}</p>
+          <p style={{ fontSize: "1rem", fontWeight: "bold"}}>
             {bottomBanner?.title}
           </p>
           <p>{bottomBanner?.description}</p>

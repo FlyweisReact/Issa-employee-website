@@ -88,43 +88,11 @@ const ResourcesPage = () => {
 
         <div className="partner-page-container21">
           <div className="partner-page-container2111">
-            {/* <div>
-              <img
-                style={{
-                  maxWidth: "190px",
-                  maxHeight: "250px",
-                  width: "auto",
-                  height: "auto",
-                  marginBottom: "1rem",
-                }}
-                src={blogNotes?.image}
-                alt="partner"
-              />
-            </div>
-            <div >
-              <p
-                style={{
-                  color: "#32373A",
-                  fontWeight: "bold",
-                  fontSize: "1rem",
-                }}
-              >
-                {blogNotes?.title}
-              </p>{" "}
-             
-              <p>{blogNotes?.description}</p>
-             
-            </div> */}
-              <div
+           
+              <div 
                     dangerouslySetInnerHTML={{ __html: mainBlog?.linkDescription || "" }}
                   ></div>
-            {/* <ul>
-              <li>For Behavioral Health Residential Facilities Licensing ADHS - Residential Facilities Licensing - Home (<a href="https://www.azdhs.gov/">azdhs.gov</a>)</li>
-              <li>APEP Login    Identity Cloud Service (<a href="https://www.oracle.com/cloud/">oraclecloud.com</a>)</li>
-              <li>QM Portal      (<a href="https://qmportal.azahcccs.gov">https://qmportal.azahcccs.gov</a>)</li>
-              <li>AHCCCS ONLINE    (<a href="https://azwebtst.statemedicaid.us">https://azwebtst.statemedicaid.us</a>)  </li>
-              <li>Relias - Small Provider Portal (SPP) (<a href="https://www.relias.com/">reliaslearning.com</a>)</li>
-            </ul> */}
+         
           </div>
         </div>
         <div>
@@ -135,14 +103,14 @@ const ResourcesPage = () => {
                 fontSize: "1.3rem",
                 borderTop: "1px solid #CCCCCC",
                 paddingTop: "0.5rem",
+                margin:"0rem"
               }}
             >
               {mainBlog?.title}
             </p>
             <div className="resources-page-container2111">
               <div className="resources-page-container21111">
-                <p style={{fontWeight:"500",fontSize:"16px"}}  dangerouslySetInnerHTML={{ __html: mainBlog?.description || "" }}>
-                
+                <p style={{fontWeight:"500",fontSize:"16px",margin:"0rem"}}  dangerouslySetInnerHTML={{ __html: mainBlog?.description || "" }}>
                 </p>
                 <p>
                   <button
