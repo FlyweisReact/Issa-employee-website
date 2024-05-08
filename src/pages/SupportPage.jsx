@@ -69,8 +69,8 @@ const SupportPage = () => {
                 >
                 </p>
 
-                <p style={{ color: "#AF110C",margin:"0" }}>{item?.question}</p>
-                <p style={{ fontSize: "1rem",margin:"0" }}>{item?.answer}</p>
+                <p style={{fontSize: "1.5rem", color: "#AF110C",margin:"0" }}>{item?.question}</p>
+                <p style={{ fontSize: "1rem",margin:"0",fontWeight:"bold" }}>{item?.answer}</p>
               
               </div>
             ))}
@@ -143,16 +143,16 @@ const SupportPage = () => {
                 marginTop: "1rem",
                 fontWeight: "bold",
                 fontSize: "1.5rem",
+                margin:"0"
               }}
             >
-               OasisNotes Support
+              Contact Information
             </p>
             <p style={{ fontWeight: "bold",margin: "0"}}>
               For more information or to request a demo, please contact us.
             </p>
 
-              <p style={{ fontWeight: "900",margin:"0"}}>Hours: </p>
-              <p >Mon-Fri: 8: 00am - 5: 00pm MST</p>
+              <p style={{margin:"0"}}>Hours: Mon-Fri: 8: 00am - 5: 00pm MST</p>
             
                 <div
                   style={{
@@ -197,7 +197,7 @@ const SupportPage = () => {
 
                 </div>
                 
-            <p style={{margin:"0"}}>{contect?.city}</p>
+            {/* <p style={{margin:"0"}}>{contect?.city}</p> */}
             <p style={{margin:"0"}}>Address: {contect?.state}</p>
             <p style={{margin:"0"}}>{contect?.pincode}</p>
             {/* <p>

@@ -174,6 +174,165 @@ const DownloadPage = () => {
         </div>
 
         <div className="support-page-container22">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: ".1rem",
+              fontWeight: "bold",
+            }}
+          >
+            <p
+              style={{
+                color: "#AF110C",
+                marginTop: "1rem",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                margin:"0"
+              }}
+            >
+              Contact Information
+            </p>
+            <p style={{ fontWeight: "bold",margin: "0"}}>
+              For more information or to request a demo, please contact us.
+            </p>
+
+              <p style={{margin:"0"}}>Hours: Mon-Fri: 8: 00am - 5: 00pm MST</p>
+            
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem", lineHeight: "0.5rem" }}>
+                    <p style={{ fontWeight: "900" }}>Sales Email: <a href={contect?.saleEmail}>{contect?.saleEmail}</a></p>
+                    <p style={{margin:"auto"}}>Phone Number:  {contect?.salePhone}</p>
+                  </div>
+
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem" ,lineHeight: "0.5rem"}}>
+                    <p style={{ fontWeight: "900",whiteSpace:"none",lineHeight: "1rem" }}>Support Email: <a href={contect?.saleEmail}>
+                      {/* {contect?.saleEmail} */}
+                      support@oasisnotes.com
+                      </a></p>
+                    <p style={{margin:"0"}}>Phone Number:  {contect?.salePhone}</p>
+                  </div>
+
+                </div>
+                
+            {/* <p style={{margin:"0"}}>{contect?.city}</p> */}
+            <p style={{margin:"0"}}>Address: {contect?.state}</p>
+            <p style={{margin:"0"}}>{contect?.pincode}</p>
+            {/* <p>
+              Support :{" "}
+              <span style={{ color: "#0152A8", textDecoration: "underline" }}>
+                {contect?.technicalSupport}
+              </span>
+            </p> */}
+            {/* <p style={{ color: "#0152A8", textDecoration: "underline" }}>
+              {contect?.supportEmail}
+            </p> */}
+            {/* <p>
+              Sales :{" "}
+              <span style={{ color: "#0152A8", textDecoration: "underline" }}>
+                {contect?.salePhone}
+              </span>
+            </p> */}
+            {/* <p>Fax: {contect?.supportFax}</p> */}
+            <p
+              style={{
+                display: "flex",
+                gap: "1rem",
+                flexDirection: "row",
+                flexWrap: "wrap",
+              }}
+            >
+              <a href={contect?.fb}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/fb.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.twitter}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/tw.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.youtube}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/youtube.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.linkedIn}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/in.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.instagram}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/insta.png"
+                  alt="facebook"
+                />
+              </a>
+            </p>
+          </div>
+        </div>
+        {/* <div className="support-page-container22">
           <div>
             <p
               style={{
@@ -231,7 +390,7 @@ const DownloadPage = () => {
               </span>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

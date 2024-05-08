@@ -53,12 +53,12 @@ const AboutPage = () => {
                 {question?.map((item, i) => (
                   <Accordion defaultActiveKey="0" key={i} className="custom-accordion">
                     <Accordion.Item eventKey="1">
-                      <Accordion.Header style={{ fontSize: "14px" }}>
+                      <Accordion.Header >
                         {item?.title}
                       </Accordion.Header>
-                      <Accordion.Body style={{ fontSize: "14px" }}>
+                      <Accordion.Body >
                         {" "}
-                        {item?.description}
+                        <p>{item?.description}</p>
                       </Accordion.Body>
                     </Accordion.Item>
                   </Accordion>
@@ -181,7 +181,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div> */}
-        <div className="support-page-container22">
+       <div className="support-page-container22">
           <div
             style={{
               display: "flex",
@@ -196,16 +196,16 @@ const AboutPage = () => {
                 marginTop: "1rem",
                 fontWeight: "bold",
                 fontSize: "1.5rem",
+                margin:"0"
               }}
             >
-              OASIS NOTES SUPPORT
+              Contact Information
             </p>
             <p style={{ fontWeight: "bold",margin: "0"}}>
               For more information or to request a demo, please contact us.
             </p>
 
-              <p style={{ fontWeight: "900",margin:"0"}}>Hours: </p>
-              <p >Mon-Fri: 8: 00am - 5: 00pm MST</p>
+              <p style={{margin:"0"}}>Hours: Mon-Fri: 8: 00am - 5: 00pm MST</p>
             
                 <div
                   style={{
@@ -250,7 +250,7 @@ const AboutPage = () => {
 
                 </div>
                 
-            <p style={{margin:"0"}}>{contect?.city}</p>
+            {/* <p style={{margin:"0"}}>{contect?.city}</p> */}
             <p style={{margin:"0"}}>Address: {contect?.state}</p>
             <p style={{margin:"0"}}>{contect?.pincode}</p>
             {/* <p>
@@ -340,307 +340,155 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
+        {/* <div className="support-page-container22">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: ".1rem",
+              fontWeight: "bold",
+            }}
+          >
+            <p
+              style={{
+                color: "#AF110C",
+                marginTop: "1rem",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+              }}
+            >
+              OASIS NOTES SUPPORT
+            </p>
+            <p style={{ fontWeight: "bold",margin: "0"}}>
+              For more information or to request a demo, please contact us.
+            </p>
+
+              <p style={{ fontWeight: "900",margin:"0"}}>Hours: </p>
+              <p >Mon-Fri: 8: 00am - 5: 00pm MST</p>
+            
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem", lineHeight: "0.5rem" }}>
+                    <p style={{ fontWeight: "900" }}>Sales Email: <a href={contect?.saleEmail}>{contect?.saleEmail}</a></p>
+                    <p style={{margin:"auto"}}>Phone Number:  {contect?.salePhone}</p>
+                  </div>
+
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "1rem",
+                    alignItems: "center",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src="/ContactUs/message.png"
+                    alt=""
+                  />
+                  <div style={{ fontSize: ".9rem" ,lineHeight: "0.5rem"}}>
+                    <p style={{ fontWeight: "900",whiteSpace:"none",lineHeight: "1rem" }}>Support Email: <a href={contect?.saleEmail}>
+                    
+                      support@oasisnotes.com
+                      </a></p>
+                    <p style={{margin:"0"}}>Phone Number:  {contect?.salePhone}</p>
+                  </div>
+
+                </div>
+                
+            <p style={{margin:"0"}}>{contect?.city}</p>
+            <p style={{margin:"0"}}>Address: {contect?.state}</p>
+            <p style={{margin:"0"}}>{contect?.pincode}</p>
+          
+            <p
+              style={{
+                display: "flex",
+                gap: "1rem",
+                flexDirection: "row",
+                flexWrap: "wrap",
+              }}
+            >
+              <a href={contect?.fb}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/fb.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.twitter}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/tw.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.youtube}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/youtube.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.linkedIn}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/in.png"
+                  alt="facebook"
+                />
+              </a>
+              <a href={contect?.instagram}>
+                <img
+                  style={{
+                    maxWidth: "45px",
+                    maxHeight: "45px",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                  src="/DemoRequest/insta.png"
+                  alt="facebook"
+                />
+              </a>
+            </p>
+          </div>
+        </div> */}
     </div>
   </div>
 
 
-    // <div className="support-page">
-    //   <div className="support-page-container">
-    //     {/* <p>Clinical Advisors</p> */}
-    //     <p>OasisNotes </p>
-    //   </div>
-    //   <div>
-    //     <p
-    //       style={{
-    //         textAlign: "center",
-    //         fontSize: "1.4rem",
-    //         fontWeight: "700",
-    //         color: "#AF110C",
-    //         lineHeight: "2rem",
-    //         width: "70%",
-    //         margin: "auto",
-    //       }}
-    //     >
-    //       OasisNotes created this Clinical Advisory Board to ensure that we
-    //       develop solustion that support the highest clinical standards.
-    //     </p>
-    //   </div>
-    //   <div style={{ marginTop: "2rem" }}>
-    //     <div>
-    //       <p
-    //         style={{
-    //           textAlign: "center",
-    //           width: "70%",
-    //           margin: "auto",
-    //           color: "#0152A8",
-    //           fontWeight: "bold",
-    //           fontSize: "1.2rem",
-    //           marginBottom: "3rem",
-    //         }}
-    //       >
-    //         In addiction to our in-house clinical team, the board plays multiple
-    //         roles to support our customers success.
-    //       </p>
-    //       <div className="about-page-container2">
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               onClick={() => navigate("/about/clinical-advisors/:boss")}
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //                 cursor: "pointer",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <img
-    //             style={{
-    //               maxWidth: "170px",
-    //               maxHeight: "170px",
-    //               width: "auto",
-    //               height: "auto",
-    //             }}
-    //             src="/AboutPage/employee.png"
-    //             alt="employee"
-    //           />
-    //           <div>
-    //             <p
-    //               style={{
-    //                 fontWeight: "bold",
-    //                 color: "#AF110C",
-    //                 lineHeight: "1rem",
-    //                 marginTop: "1rem",
-    //               }}
-    //             >
-    //               Employee 1
-    //             </p>
-    //             <p>
-    //               Employee 1 , is the Director of Behavioral Health for
-    //               Accreditation Guru, a National consulting firm dedicated to
-    //               helping social service, behavioral health, and education...
-    //             </p>
-    //             <p
-    //               style={{
-    //                 color: "#AF110C",
-    //                 fontWeight: "bold",
-    //                 margin: "0",
-    //                 display: "flex",
-    //                 alignItems: "center",
-    //                 textAlign: "center",
-    //                 justifyContent: "center",
-    //               }}
-    //             >
-    //               Learn More &gt;
-    //             </p>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
+   
   );
 };
 

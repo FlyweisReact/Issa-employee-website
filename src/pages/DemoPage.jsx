@@ -270,6 +270,7 @@ const DemoPage = () => {
                 marginTop: "1rem",
                 fontWeight: "bold",
                 fontSize: "1.5rem",
+                margin:"0"
               }}
             >
               Contact Information
@@ -278,8 +279,7 @@ const DemoPage = () => {
               For more information or to request a demo, please contact us.
             </p>
 
-              <p style={{ fontWeight: "900",margin:"0"}}>Hours: </p>
-              <p >Mon-Fri: 8: 00am - 5: 00pm MST</p>
+              <p style={{margin:"0"}}>Hours: Mon-Fri: 8: 00am - 5: 00pm MST</p>
             
                 <div
                   style={{
@@ -323,8 +323,8 @@ const DemoPage = () => {
                   </div>
 
                 </div>
-                
-            <p style={{margin:"0"}}>{contect?.city}</p>
+{/*                 
+            <p style={{margin:"0"}}>{contect?.city}</p> */}
             <p style={{margin:"0"}}>Address: {contect?.state}</p>
             <p style={{margin:"0"}}>{contect?.pincode}</p>
             {/* <p>
