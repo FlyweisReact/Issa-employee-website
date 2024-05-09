@@ -3,6 +3,12 @@
   margin-top: 2rem;
 }
 
+.spinner-position{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
 .pricing-page-container2 {
   width: 50%;
   margin: auto;

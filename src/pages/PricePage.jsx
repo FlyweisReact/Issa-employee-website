@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import "./css/PricePage.css";
 import axios from "axios";
+import Loder from "../components/Loder"// import BaseUrl 
+import {show_notification} from "../Api_collection/Api"
 
 // payment gateway
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
 function MyVerticallyCenteredModal(props) {
   const [email, setEmail] = useState("");
   const [subscriptionId, setSubscriptionId] = useState("");
+  const [otp,setOtp]=useState("");
+  const [optBollean,setOtpBoolean]=useState(false);
 
   const [textData, setTextData] = useState("");
 
@@ -27,17 +32,64 @@ function MyVerticallyCenteredModal(props) {
 
     try {
       const res = await axios.post(
-        `${BaseUrl}takeSubscription/${subscriptionId}`,
+        `${BaseUrl}createAdminForSubscription`,
         {
           email,
         }
       );
-      console.log(res, "payment data");
+    // try {
+    //   const res = await axios.post(
+    //     `${BaseUrl}takeSubscription/${subscriptionId}`,
+    //     {
+    //       email,
+    //     }
+    //   );
+    setOtpBoolean(true);
       window.location.href = res.data.session.url;
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handlePost1 = async (e) => {
+    e.preventDefault();
+    let redirect;
+
+    try {
+      const res = await axios.post(
+        `${BaseUrl}admin/forgotVerifyOtp`,
+        {
+          email,
+          otp
+        }
+      );
+
+      console.log(res?.data?.status,"response data");
+
+      if(res?.data?.status===200){
+        redirect = await axios.post(
+          `${BaseUrl}takeSubscription/${subscriptionId}`,
+          {
+            email,
+          })
+      }else{
+        show_notification("Verify Failed!","Verification Failed","danger")
+      }
+
+    // try {
+    //   const res = await axios.post(
+    //     `${BaseUrl}takeSubscription/${subscriptionId}`,
+    //     {
+    //       email,
+    //     }
+    //   );
+
+      window.location.href = redirect.data.session.url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   return (
     <Modal
@@ -78,7 +130,38 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form onSubmit={handlePost}>
+        {
+          optBollean ? <Form onSubmit={handlePost1}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>Enter Otp</Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="Enter Otp"
+              required
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+            />
+          </Form.Group>
+          
+          <Button
+            variant="primary"
+            type="submit"
+            style={{ marginTop: "1.5rem" }}
+          >
+            Submit
+          </Button>
+        </Form> : <Form onSubmit={handlePost}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
             <Form.Control
@@ -97,6 +180,8 @@ function MyVerticallyCenteredModal(props) {
             Submit
           </Button>
         </Form>
+        }
+        
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
@@ -109,6 +194,7 @@ const PricePage = () => {
   // model
   const [modalShow, setModalShow] = useState(false);
   const [subscriptionId, setSubscriptionId] = useState("");
+  const [loding,setLoading]=useState(false);
 
   //inner text
   const [textData, setTextData] = useState("");
@@ -120,18 +206,21 @@ const PricePage = () => {
   const [fpq, setFpq] = useState("");
   const [view, setView] = useState("");
 
-  const BaseUrl = "https://issa-backend.vercel.app/api/v1/";
 
   const getPricingData = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(`${BaseUrl}Pricing/getPricing`);
       setPricing(res?.data?.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
   const getPricingFpq = async () => {
+
+
     try {
       const res = await axios.get(`${BaseUrl}Pricing/getPricingFAQ`);
       setFpq(res?.data?.data);
@@ -140,16 +229,16 @@ const PricePage = () => {
     }
   };
 
-  const getUserPost = async () => {
-    try {
-      const res = await axios.post(`${BaseUrl}Pricing/calculatePricing`, {
-        noOfUser: user,
-      });
-      setUserData(res?.data?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getUserPost = async () => {
+  //   try {
+  //     const res = await axios.post(`${BaseUrl}Pricing/calculatePricing`, {
+  //       noOfUser: user,
+  //     });
+  //     setUserData(res?.data?.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     // setPricing(get_PricingData());
@@ -169,7 +258,7 @@ const PricePage = () => {
   };
   return (
     <div className="support-page">
-      <div className="support-page-container">
+      <div className="support-page-container-pricing">
      
         <p>{fpq?.heading}</p>
       </div>
@@ -187,7 +276,8 @@ const PricePage = () => {
           {fpq?.subHeading}
         </p>
 
-        <div className="pricing-page-container2">
+        {
+          loding ? <Loder/> : <div className="pricing-page-container2">
           {pricing?.slice(0, 2)?.map((item, i) => (
             <>
               <div key={i} className="pricing-child-block">
@@ -259,7 +349,7 @@ const PricePage = () => {
                       setModalShow(true);
                       setSubscriptionId(item._id);
                       setTextData(
-                        `Plan ${i + 1} is ${
+                        `${item?.name} is ${
                           item?.perUser * 3
                         } for the first 3 months and then ${
                           item?.perUser
@@ -283,157 +373,9 @@ const PricePage = () => {
             </>
           ))}
         </div>
-        {/* <div
-          style={{
-            width: "78%",
-            margin: "auto",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            gap: "1rem",
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            color: "#AF110C",
-            flexWrap: "wrap",
-          }}
-        >
-          <p>Unlimited User (You can add unlimited BHT's, Nurses, Behavioral Health Professionals, and other contractors)  </p>
-          <p>Unlimited Data</p>
-          <p>Unilimited Training/ Support</p>
-          <p>Tracking Tools for Residents and employee's</p>
-          <p style={{ paddingRight: "2%" }}>Appointment Tracking and reminder</p>
-          <p>Medication Administration Record</p>
-          <p>Administration Tracking</p>
-        </div> */}
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: "2rem",
-          }}
-        >
-          <button style={buttonStyle} onClick={() => setShowFpq(!showFpq)}>
-            Billing FAQs
-          </button>
-          {showFpq && (
-            <div className="container d-flex justify-content-center align-items-center">
-              <div className="col-md-8">
-                {fpq?.faqs?.map((item, i) => (
-                  <Accordion defaultActiveKey="0" key={i}>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header style={{ fontSize: "14px" }}>
-                        {item?.question}
-                      </Accordion.Header>
-                      <Accordion.Body style={{ fontSize: "14px" }}>
-                        {" "}
-                        {item?.answer}
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                ))}
-              </div>
-            </div>
-          )}
+        }
 
-     
-        </div> */}
-        {/* <div style={{ width: "60%", margin: "auto", textAlign: "center" }}>
-          <p
-            style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#AF110C" }}
-          >
-            {fpq?.title}
-          </p>
-          <p style={{ fontSize: "1.2rem", textAlign: "center" }}>
-            {fpq?.description}
-          </p>
-        </div> */}
-        {/* <div className="price-calculator-page">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <p>Number of User</p>
-            <img
-              style={{ width: "45px" }}
-              src="/PricingPage/users.png"
-              alt=""
-            />
-            <input
-              type="text"
-              style={{
-                border: "1px solid black",
-                minWidth: "140px",
-                maxWidth: "145px",
-                maxHeight: "40px",
-                width: "auto",
-                height: "auto",
-                marginTop: "1rem",
-                textAlign: "center",
-                outline: "none",
-              }}
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-            ></input>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "1rem",
-            }}
-          >
-      
-            <button
-              style={{
-                fontSize: "1.2rem",
-                backgroundColor: "#26427E",
-                padding: ".5rem 1rem",
-                color: "white",
-                fontWeight: "bold",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                marginTop: "1.5rem",
-              }}
-              onClick={getUserPost}
-            >
-              Calculate
-            </button>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <p>Total</p>
-            <p
-              style={{
-                border: "none",
-                minWidth: "140px",
-                maxWidth: "145px",
-                minHeight: "60px",
-                maxHeight: "60px",
-                width: "auto",
-                height: "auto",
-                marginTop: "1rem",
-                textAlign: "center",
-                backgroundColor: "#DDDDDD",
-                display: "grid",
-                placeItems: "center",
-                fontWeight: "bold",
-              }}
-            >
-              {userData}
-            </p>
-          </div>
-        </div> */}
+ 
       </div>
       <MyVerticallyCenteredModal
         show={modalShow}
