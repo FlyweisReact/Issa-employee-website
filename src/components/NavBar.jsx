@@ -5,31 +5,25 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { FaPhoneAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
-
-  const [contect, setContect] = useState("");
-
-  const BaseUrl = import.meta.env.VITE_API_BASEURL;
-
-  const contectDetail = async () => {
-    try {
-      const res = await axios.get(
-        `${BaseUrl}ContactDetails/viewContactDetails`
-      );
-      setContect(res.data?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [contect, setContect] = useState(null); // Initialize contect as null initially
 
   useEffect(() => {
-    contectDetail();
+    const BaseUrl = import.meta.env.VITE_API_BASEURL;
+
+    const fetchContect = async () => {
+      try {
+        const res = await axios.get(`${BaseUrl}ContactDetails/viewContactDetails`);
+        setContect(res.data?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchContect();
   }, []);
-
-  console.log(contect,"data")
-
-
 
   return (
     <div style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px" }}>
@@ -40,7 +34,7 @@ const NavBar = () => {
         className="bg-body-tertiary"
       >
         <Container>
-          <Navbar.Brand href="/">
+          <Navbar.Brand as={Link} to="/">
             <img
               src="/logo.png"
               alt="logo"
@@ -50,7 +44,6 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto"></Nav>
-            
             <Nav>
               <Nav className="me-auto">
                 <NavDropdown
@@ -58,64 +51,70 @@ const NavBar = () => {
                   id="collapsible-nav-dropdown"
                   className="custom-dropdown-title"
                 >
-                  <NavDropdown.Item href="/support-faq">
+                  <NavDropdown.Item as={Link} to="/support-faq">
                     Support FAQ
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="/support-downloads">
+                  <NavDropdown.Item as={Link} to="/support-downloads">
                     Downloads
                   </NavDropdown.Item>
-             
                 </NavDropdown>
-                
                 <NavDropdown
                   title="About"
                   id="collapsible-nav-dropdown"
                   className="custom-dropdown-title"
                 >
-                  <NavDropdown.Item href="/about/clinical-advisors">
-                  OasisNotes
+                  <NavDropdown.Item as={Link} to="/about/clinical-advisors">
+                    OasisNotes
                   </NavDropdown.Item>
-                  {/* href="/about/partners" */}
-                  <NavDropdown.Item >
-                    Partners comming soon
+                  <NavDropdown.Item>
+                    Partners coming soon
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link
                   style={{ color: "#1A9FB2", fontWeight: "600" }}
-                  href="/resources"
+                  as={Link}
+                  to="/resources"
                 >
                   Resources
                 </Nav.Link>
                 <Nav.Link
                   style={{ color: "#1A9FB2", fontWeight: "600" }}
-                  href="/pricing"
+                  as={Link}
+                  to="/pricing"
                 >
                   Pricing
                 </Nav.Link>
                 <Nav.Link
                   style={{ color: "#1A9FB2", fontWeight: "600" }}
-                  href="/contact-us"
+                  as={Link}
+                  to="/contact-us"
                 >
                   Contact
                 </Nav.Link>
-
                 <NavDropdown
                   title="Login"
                   id="collapsible-nav-dropdown"
                   className="custom-dropdown-title"
                 >
-                  
-                  <NavDropdown.Item target="_blank" href="https://resident.oasisnotes.com/" >
+                  <NavDropdown.Item
+                    target="_blank"
+                    href="https://resident.oasisnotes.com/"
+                  >
                     Patient Panel
                   </NavDropdown.Item>
-                  <NavDropdown.Item target="_blank" href="https://employee.oasisnotes.com/">
+                  <NavDropdown.Item
+                    target="_blank"
+                    href="https://employee.oasisnotes.com/"
+                  >
                     Employee Panel
                   </NavDropdown.Item>
-                  <NavDropdown.Item target="_blank" href="https://admin.oasisnotes.com/">
+                  <NavDropdown.Item
+                    target="_blank"
+                    href="https://admin.oasisnotes.com/"
+                  >
                     Admin Panel
                   </NavDropdown.Item>
                 </NavDropdown>
-
                 <Nav.Link
                   style={{
                     color: "white",
@@ -125,19 +124,17 @@ const NavBar = () => {
                     padding: "0.5rem 1.5rem",
                     textAlign: "center",
                   }}
-                  href="/demo-request"
+                  as={Link}
+                  to="/demo-request"
                 >
                   Request Demo
                 </Nav.Link>
-                <Nav.Link
-                
-                >
-                  <FaPhoneAlt /> 
-                  {contect?.supportText}
-                </Nav.Link>
-
+                {contect && (
+                  <Nav.Link>
+                    <FaPhoneAlt /> {contect?.supportText}
+                  </Nav.Link>
+                )}
               </Nav>
-              
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -145,6 +142,5 @@ const NavBar = () => {
     </div>
   );
 };
-
 
 export default NavBar;
