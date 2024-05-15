@@ -37,15 +37,25 @@ function MyVerticallyCenteredModal(props) {
           email,
         }
       );
-    // try {
-    //   const res = await axios.post(
-    //     `${BaseUrl}takeSubscription/${subscriptionId}`,
-    //     {
-    //       email,
-    //     }
-    //   );
+    
     setOtpBoolean(true);
       window.location.href = res.data.session.url;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlePostAgain = async () => {
+  
+    try {
+      const res = await axios.post(
+        `${BaseUrl}createAdminForSubscription`,
+        {
+          email,
+        }
+      );
+    
+    setOtpBoolean(true);
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +94,7 @@ function MyVerticallyCenteredModal(props) {
     //     }
     //   );
 
-      window.location.href = redirect.data.session.url;
+      window.location.href = redirect?.data?.session?.url;
     } catch (error) {
       console.log(error);
     }
@@ -153,6 +163,18 @@ function MyVerticallyCenteredModal(props) {
               onChange={(e) => setOtp(e.target.value)}
             />
           </Form.Group>
+
+          <div style={{display:"flex", columnGap:"1rem"}}>
+            {
+              optBollean &&  <Button
+              variant="primary"
+              type="button"
+              style={{ marginTop: "1.5rem" }}
+              onClick={handlePostAgain}
+            >
+              Again send Otp
+            </Button>
+            }
           
           <Button
             variant="primary"
@@ -161,6 +183,8 @@ function MyVerticallyCenteredModal(props) {
           >
             Submit
           </Button>
+          </div>
+          
         </Form> : <Form onSubmit={handlePost}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
