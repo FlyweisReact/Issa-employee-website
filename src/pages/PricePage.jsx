@@ -39,9 +39,9 @@ function MyVerticallyCenteredModal(props) {
       );
     
     setOtpBoolean(true);
-      window.location.href = res.data.session.url;
+      // window.location.href = res.data.session.url;
     } catch (error) {
-      console.log(error);
+   
     }
   };
 
@@ -57,7 +57,7 @@ function MyVerticallyCenteredModal(props) {
     
     setOtpBoolean(true);
     } catch (error) {
-      console.log(error);
+   
     }
   };
 
@@ -74,8 +74,6 @@ function MyVerticallyCenteredModal(props) {
         }
       );
 
-      console.log(res?.data?.status,"response data");
-
       if(res?.data?.status===200){
         redirect = await axios.post(
           `${BaseUrl}takeSubscription/${subscriptionId}`,
@@ -85,18 +83,10 @@ function MyVerticallyCenteredModal(props) {
       }else{
         show_notification("Verify Failed!","Verification Failed","danger")
       }
-
-    // try {
-    //   const res = await axios.post(
-    //     `${BaseUrl}takeSubscription/${subscriptionId}`,
-    //     {
-    //       email,
-    //     }
-    //   );
-
-      window.location.href = redirect?.data?.session?.url;
+      
+      window.location.href = redirect?.data?.session;
     } catch (error) {
-      console.log(error);
+      show_notification("Verify Failed!",`${error?.data?.response?.message}`,"danger")
     }
   };
 
@@ -238,7 +228,7 @@ const PricePage = () => {
       setPricing(res?.data?.data);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+ 
     }
   };
 
@@ -249,7 +239,7 @@ const PricePage = () => {
       const res = await axios.get(`${BaseUrl}Pricing/getPricingFAQ`);
       setFpq(res?.data?.data);
     } catch (error) {
-      console.log(error);
+   
     }
   };
 

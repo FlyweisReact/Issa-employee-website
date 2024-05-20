@@ -56,11 +56,14 @@ export const AllRoutes = () => {
 {/* privacy lolicy */}
 <Route path="/Privacy-policy" element={<PrivacyPolicy />} />
       {/* [payment] */}
-      <Route path="/paymet-successfull/:id" element={<SuccessPaymentPage />} />
-      <Route path="/paymet-failed/:id" element={<FailPaymentPage />} />
+      <Route path="/payment-successfull/:id" element={<SuccessPaymentPage />} />
+      <Route path="/payment-failed/:id" element={<FailPaymentPage />} />
 
       {/* Not Found */}
       <Route path="*" element={<h1>404 Page Not Found</h1>} />
     </Routes>
   );
 };
+
+
+// https://issa-website-website.vercel.app/payment-successful/${update._id}?amount=${totalAmount},
