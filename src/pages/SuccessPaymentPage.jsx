@@ -27,18 +27,25 @@ const parent_id = idMatch ? idMatch[0] : null;
     // console.log('Payment ID:', paymentId);
     // console.log('Payer ID:', payerId);
     // console.log('Extracted ID:', parent_id);
+   
 
     const verifySubscription = async () => {
       try {
  
-        const res2 = await axios.get(`${BaseUrl}successOrderForPaypal?paymentId=${paymentId}&PayerID=${payerId}&amount=${amount/100}`);
+        const res2 = await axios.get(`${BaseUrl}successOrderForPaypal?paymentId=${paymentId}&PayerID=${payerId}&amount=${amount}`);
 
+
+        if(res2.data.status===200){
           const res1 = await axios.post(`${BaseUrl}verifySubscription/${parent_id}`, {
             Status: "Paid"
           });
-          setShow(true)
-        show_notification("Payment success!", "Payment Successful", "success");
 
+          if(res1.data.status===200){
+            setShow(true);
+            show_notification("Payment success!", "Payment Successful", "success");
+          }
+        }
+   
         navigate("/");
       } catch (error) {
         console.error('API call error:', error);
@@ -56,7 +63,7 @@ const parent_id = idMatch ? idMatch[0] : null;
   return (
     <>
     {
-      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem" }}>Payment Successful</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0" }}>...</div>
+      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem" }}>Payment Successful</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0" }}>payment progress...</div>
     }
     </>
   );
