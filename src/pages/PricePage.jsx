@@ -11,6 +11,8 @@ import Form from "react-bootstrap/Form";
 const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
 function MyVerticallyCenteredModal(props) {
+  const [firstName,setFirstName]=useState("");
+  const [lastName,setLastName]=useState("");
   const [email, setEmail] = useState("");
   const [subscriptionId, setSubscriptionId] = useState("");
   const [otp,setOtp]=useState("");
@@ -35,6 +37,8 @@ function MyVerticallyCenteredModal(props) {
         `${BaseUrl}createAdminForSubscription`,
         {
           email,
+          firstName,
+          lastName
         }
       );
     
@@ -132,6 +136,29 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
         {
           optBollean ? <Form onSubmit={handlePost1}>
+
+             <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter First Name"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Last Name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
             <Form.Control
@@ -177,6 +204,28 @@ function MyVerticallyCenteredModal(props) {
           
         </Form> : <Form onSubmit={handlePost}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter First Name"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label style={{ fontSize: "1rem" }}>Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Last Name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </Form.Group>
+          
             <Form.Label style={{ fontSize: "1rem" }}>Email address</Form.Label>
             <Form.Control
               type="email"

@@ -23,12 +23,6 @@ const parent_id = idMatch ? idMatch[0] : null;
     const payerId = searchParams.get('PayerID');
 
 
-    // console.log('Amount:', amount);
-    // console.log('Payment ID:', paymentId);
-    // console.log('Payer ID:', payerId);
-    // console.log('Extracted ID:', parent_id);
-   
-
     const verifySubscription = async () => {
       try {
  
@@ -46,7 +40,7 @@ const parent_id = idMatch ? idMatch[0] : null;
           }
         }
    
-        navigate("/");
+        // navigate("/");
       } catch (error) {
         console.error('API call error:', error);
         show_notification("Payment Fail!", "Something went wrong", "danger");
@@ -63,7 +57,7 @@ const parent_id = idMatch ? idMatch[0] : null;
   return (
     <>
     {
-      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem" }}>Payment Successful</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0" }}>payment progress...</div>
+      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem" }}>Thank you! Your payment was successful.</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0" }}>payment progress...</div>
     }
     </>
   );
