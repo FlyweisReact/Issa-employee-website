@@ -57,7 +57,7 @@ const parent_id = idMatch ? idMatch[0] : null;
   return (
     <>
     {
-      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem" }}>Thank you! Your payment was successful.</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0" }}>payment progress...</div>
+      show ? <div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem", height:"40vh" }}>Thank you! Your payment was successful.</div>:<div style={{ marginTop: "2rem", textAlign: "center", fontSize: "2rem",visibility: "0",height:"40vh" }}>payment progress...</div>
     }
     </>
   );
