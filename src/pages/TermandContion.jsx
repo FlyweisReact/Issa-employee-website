@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+
 import "./css/AboutPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Accordion from "react-bootstrap/Accordion";
+
 
 const TermandContion = () => {
-  const navigate = useNavigate();
+
   const [contect, setContect] = useState("");
   const [privacy,setPrivacy]=useState("");
 

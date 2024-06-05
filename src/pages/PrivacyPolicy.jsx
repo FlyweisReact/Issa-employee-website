@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom";
+
 import "./css/AboutPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Accordion from "react-bootstrap/Accordion";
 
 const PrivacyPolicy = () => {
-  const navigate = useNavigate();
+
   const [contect, setContect] = useState("");
   const [TermandContion, setTremAndCondition] = useState([]);
 
@@ -29,7 +28,7 @@ const PrivacyPolicy = () => {
         `${BaseUrl}static/getTerms`
       );
       setTremAndCondition(res.data?.data);
-     console.log('Working')
+
     } catch (error) {
       console.log(error);
     }

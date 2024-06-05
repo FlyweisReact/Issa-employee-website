@@ -15,7 +15,7 @@ export const Footer = () => {
         `${BaseUrl}ContactDetails/viewContactDetails`
       );
       setContect(res.data?.data);
-      console.log(res.data?.data, "contect data");
+     
     } catch (error) {
       console.log(error);
     }

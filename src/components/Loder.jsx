@@ -1,11 +1,18 @@
-import Spinner from 'react-bootstrap/Spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 function Loder() {
   return (
     <div className='spinner-position'>
-       <Spinner animation="border" role="status" >
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+      <TailSpin
+  visible={true}
+  height="40"
+  width="40"
+  color="#1a9fb2"
+  ariaLabel="tail-spin-loading"
+  radius="1"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
     </div>
    
   );

@@ -33,7 +33,6 @@ const DownloadPage = () => {
     }
   };
 
-  console.log(data,"specification")
 
   useEffect(() => {
     contectDetail();

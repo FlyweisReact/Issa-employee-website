@@ -45,7 +45,7 @@ function MyVerticallyCenteredModal(props) {
     setOtpBoolean(true);
       // window.location.href = res.data.session.url;
     } catch (error) {
-   
+   console.log(error);
     }
   };
 
@@ -61,7 +61,7 @@ function MyVerticallyCenteredModal(props) {
     
     setOtpBoolean(true);
     } catch (error) {
-   
+      console.log(error);
     }
   };
 
@@ -106,10 +106,10 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Title id="contained-modal-title-vcenter">
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "column",
-              justifyContent: "center",
+              // display: "flex",
+              // alignItems: "center",
+              // flexDirection: "column",
+              // justifyContent: "center",
               width: "100%",
             }}
           >
@@ -118,7 +118,6 @@ function MyVerticallyCenteredModal(props) {
                 src="/logo.png"
                 alt="logo"
                 style={{
-                  // minHeight: "100px",
                   minWidth: "200px",
                   maxWidth: "120px",
                   width: "auto",
@@ -263,11 +262,7 @@ const PricePage = () => {
   const [textData, setTextData] = useState("");
 
   const [pricing, setPricing] = useState([]);
-  const [user, setUser] = useState("");
-  const [userData, setUserData] = useState(0);
-  const [showFpq, setShowFpq] = useState(false);
   const [fpq, setFpq] = useState("");
-  const [view, setView] = useState("");
 
 
   const getPricingData = async () => {
@@ -277,7 +272,7 @@ const PricePage = () => {
       setPricing(res?.data?.data);
       setLoading(false);
     } catch (error) {
- 
+      console.log(error);
     }
   };
 
@@ -288,7 +283,7 @@ const PricePage = () => {
       const res = await axios.get(`${BaseUrl}Pricing/getPricingFAQ`);
       setFpq(res?.data?.data);
     } catch (error) {
-   
+      console.log(error);
     }
   };
 
@@ -309,16 +304,8 @@ const PricePage = () => {
     getPricingFpq();
   }, []);
 
-  const buttonStyle = {
-    marginTop: "1rem",
-    marginBottom: "1rem",
-    padding: "0.2rem 1rem",
-    borderRadius: "55px",
-    backgroundColor: "#AF110C",
-    color: "white",
-    border: "none",
-    fontSize: "1rem",
-  };
+
+
   return (
     <div className="support-page">
       <div className="support-page-container-pricing">
@@ -375,19 +362,7 @@ const PricePage = () => {
                     /Month
                   </p>
 
-                  {/* <p
-                    style={{
-                      color: "#1A9FB2",
-                      alignItems: "center",
-                      marginTop: "1rem",
-                      cursor: "pointer",
-                    }}
-                    onClick={() =>
-                      view === item._id ? setView("") : setView(item._id)
-                    }
-                  >
-                    View more
-                  </p> */}
+          
 
                   <div
                     className="pricing-inner-content"

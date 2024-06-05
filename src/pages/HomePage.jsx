@@ -64,7 +64,7 @@ export const HomePage = () => {
     try {
       const res = await axios.get(`${BaseUrl}OurFeatures/getOurFeatures`);
       setFeatureDataImage(res?.data?.data);
-      console.log(res.data.data);
+    
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +74,7 @@ export const HomePage = () => {
     try {
       const res = await axios.get(`${BaseUrl}News/getNews`);
       setNews(res?.data?.data);
-      console.log(res.data.data);
+      
     } catch (error) {
       console.log(error);
     }

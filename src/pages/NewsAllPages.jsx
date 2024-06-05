@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import  { useEffect, useState } from "react";
+
 import "./css/BlogPage.css";
 import { Form } from "react-bootstrap";
 import axios from "axios";
 
 const NewsAllPages = () => {
-  const navigate = useNavigate();
-  const [page, setPage] = React.useState(1);
+
+
   const [news, setNews] = useState([]);
 
-  const handleChange = (event, value) => {
-    setPage(value);
-  };
 
   const BaseUrl = import.meta.env.VITE_API_BASEURL;
   const getNewsData = async () => {
     try {
       const res = await axios.get(`${BaseUrl}News/getNews`);
       setNews(res?.data?.data);
-      console.log(res.data.data);
+     
     } catch (error) {
       console.log(error);
     }

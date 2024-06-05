@@ -1,26 +1,25 @@
-import { useNavigate } from "react-router-dom";
 import "./css/Partners.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 const PartnerPage = () => {
-  const navigate = useNavigate();
-  const [data,setDate]=useState("")
+  const [data, setData] = useState(null);
 
   const BaseUrl = import.meta.env.VITE_API_BASEURL;
 
-  const partener_logo = async () => {
+  const partnerLogo = async () => {
     try {
-      const response = await axios.get(
-        `${BaseUrl}Partner/getPartner`
-      );
-      setDate(response?.data?.data);
-      console.log(response?.data?.data,"golu don")
+      const response = await axios.get(`${BaseUrl}Partner/getPartner`);
+      setData(response?.data?.data);
+      console.log(response?.data?.data, "partner data");
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  useEffect(()=>{partener_logo()},[])
+  useEffect(() => {
+    partnerLogo();
+  }, []);
 
   return (
     <div className="support-page">
@@ -35,9 +34,8 @@ const PartnerPage = () => {
           {data?.description}
         </p>
         <div className="partner-page-container21">
-          {
-            data?.dataArray?.map((item,i)=>(
-              <div className="partner-page-container2111">
+          {data?.dataArray?.map((item, i) => (
+            <div className="partner-page-container2111" key={i}>
               <div>
                 <img
                   style={{
@@ -52,7 +50,7 @@ const PartnerPage = () => {
                 />
               </div>
               <p>
-               {item?.description}
+                {item?.description}
                 <br />
                 <button
                   style={{
@@ -68,10 +66,7 @@ const PartnerPage = () => {
                 </button>
               </p>
             </div>
-            ))
-          }
-       
-          
+          ))}
         </div>
       </div>
     </div>
