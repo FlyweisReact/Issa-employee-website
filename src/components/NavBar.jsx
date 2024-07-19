@@ -1,3 +1,5 @@
+/** @format */
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
@@ -15,7 +17,9 @@ const NavBar = () => {
 
     const fetchContect = async () => {
       try {
-        const res = await axios.get(`${BaseUrl}ContactDetails/viewContactDetails`);
+        const res = await axios.get(
+          `${BaseUrl}ContactDetails/viewContactDetails`
+        );
         setContect(res.data?.data);
       } catch (error) {
         console.log(error);
@@ -66,9 +70,7 @@ const NavBar = () => {
                   <NavDropdown.Item as={Link} to="/about/clinical-advisors">
                     OasisNotes
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    Partners coming soon
-                  </NavDropdown.Item>
+                  <NavDropdown.Item>Partners coming soon</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link
                   style={{ color: "#1A9FB2", fontWeight: "600" }}
